@@ -1,3 +1,4 @@
+import sys
 from player import Player
 from room import Room
 
@@ -52,3 +53,18 @@ player1 = Player("outside")
 # Print an error message if the movement isn't allowed.
 #
 # If the user enters "q", quit the game.
+
+currently_playing = True
+
+while currently_playing:
+    print(player1)
+    user_action = input("Enter something or press 'q' to quit: ").lower()
+
+    if user_action == 'q':
+        print('Thanks for playing')
+        sys.exit(1)
+    else:
+        print('You did not press q')
+
+# while currently_playing
+#     print(player1)
