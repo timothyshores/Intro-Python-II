@@ -42,6 +42,7 @@ room['treasure'].s_to = room['narrow']
 # Make a new player object that is currently in the 'outside' room.
 
 player1 = Player("outside")
+player2 = Player(Room("outside"))
 
 # Write a loop that:
 #
@@ -54,17 +55,29 @@ player1 = Player("outside")
 #
 # If the user enters "q", quit the game.
 
+# print(chr(27) + "[2J")
+
 currently_playing = True
 
+room_name = room[repr(player1)].name
+room_description = room[repr(player1)].description
+
+print(room_name)
+print(room_description)
+
 while currently_playing:
-    print(player1)
-    user_action = input("Enter something or press 'q' to quit: ").lower()
+    current_room = f'{player1}'
+
+    print(f"\nCurrent room: {room[current_room].name}")
+    print(f"Description: {room[current_room].description}\n")
+
+    user_action = input(
+        "Enter a direction \n - n for north, \n - e for east, \n - s for south and \n - w for west \n - q to quit: ").lower()
+
+    direction = ['']
 
     if user_action == 'q':
         print('Thanks for playing')
         sys.exit(1)
     else:
         print('You did not press q')
-
-# while currently_playing
-#     print(player1)

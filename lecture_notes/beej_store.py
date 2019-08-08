@@ -1,5 +1,6 @@
 import sys
-import department from Department
+from department import Department
+from product import Product
 
 
 class Store:
@@ -21,8 +22,8 @@ class Store:
 
 if __name__ == "__main__":  # "if we're running this from the command line
     s = Store("Beej's store", [
-        Department("Dept1"),
-        Department("Dept2")
+        Department("Dept1", [Product("Product 1", "$1")]),
+        Department("Dept2", [Product("Product 2", "2")])
     ])
 
     done = False
@@ -43,4 +44,6 @@ if __name__ == "__main__":  # "if we're running this from the command line
         print("No such department")
         sys.exit(1)
 
-    print(f"Here are all the products in {s.departments[selection]}:")
+    print(f"\nHere are all the products in {s.departments[selection]}:\n")
+    for product in s.departments[selection].products:
+        print(product)

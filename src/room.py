@@ -8,4 +8,13 @@ class Room:
         self.description = description
 
     def __str__(self):
-        return f'Name: {self.name}'
+        return f'{self.name} {self.description}'
+
+    def __repr__(self):
+        return f'{repr(self.name)}, {repr(self.description)}'
+
+    def name(self):
+        return self.name
+
+    def description(self):
+        return self.description
